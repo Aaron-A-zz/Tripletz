@@ -30,11 +30,11 @@ class ViewController: UIViewController
     
     var audioPlayer = AVAudioPlayer()
     
-    // Properties
-    var goNumber = 1 // Null (nought) faengt an
-    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0] // 0 = empty, 1 = nought, 2 = cross
-    var winningCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]] // = 3 horizontal + 3 verikal + 2 diagonal
-    var winner = 0 // 0= keiner, 1 = nought, 2 = cross
+
+    var goNumber = 1
+    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var winningCombinations = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+    var winner = 0
     
 
     override func viewDidLoad()
@@ -54,7 +54,6 @@ class ViewController: UIViewController
     }
     
 
-    // @IBActions
     @IBAction func buttonPressed(sender: UIButton)
     {
          popDrop()
@@ -63,14 +62,14 @@ class ViewController: UIViewController
         {
             var image = UIImage()
             
-            if goNumber % 2 == 0 //2nd Player
+            if goNumber % 2 == 0
             {
                 image = UIImage(named: "Triangle.png")!
                 
                 gameState[sender.tag] = 2
                 PlayerTurnsLabel.text = "It's Circles Turn"
             }
-            else // goNumber = First Play
+            else
             {
                 image = UIImage(named: "circle.png")!
                 gameState[sender.tag] = 1
